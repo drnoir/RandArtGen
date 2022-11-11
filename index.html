@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rand Art Sculpture Generator - AFrame Componenet</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+    <script src="randArtGen.js"></script>
+</head>
+<body>
+<a-scene>
+    <!--assets-->
+    <a-assets id="sceneassets">
+        <img id="binary" src="textures/chris-textures/binary.jpg">
+        <img id="brain" src="textures/chris-textures/brain.jpg">
+        <img id="futurecity" src="textures/chris-textures/futurecity.jpg">
+        <img id="lines" src="textures/chris-textures/lines.jpg">
+        <img id="orbital" src="textures/chris-textures/Orbital-State.jpg">
+        <img id="truth" src="textures/chris-textures/truth.jpg">
+        <a-asset-item id="custumGLB" src="./model/custum.glb"></a-asset-item>
+    </a-assets>
+    <a-camera position="0 1 1">
+        <a-cursor id="curserid"></a-cursor>
+    </a-camera>
+    <a-entity environment="preset: threetowers"></a-entity>
+    <a-entity id="randArtGen"
+              rand-art-gen=
+                      "minShapes:18;
+                      maxShapes:20;
+                      custumObj:false;
+                      randSeed: 8;
+                      withTextures:true;
+                      custumTexturesIDs:binary,brain, futurecity, lines,orbital,truth;
+                      custumModels:custumGLB;"
+              rotation="0 0 0"
+              position="0 0 0"
+    >
+    </a-entity>
+    </a-entity>
+    <!--lighting setup-->
+    <a-entity light="type: directional; color: #FFF; intensity: 0.4  castShadow: true;"
+              position="-0.5 1 1"></a-entity>
+    <!--end stage-->
+</a-scene>
+
+</body>
+</html>
